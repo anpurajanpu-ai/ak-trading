@@ -1,0 +1,35 @@
+import streamlit as st
+
+st.set_page_config(
+    page_title="AK Trading",
+    page_icon="📈"
+)
+
+st.title("🚀 AK TRADING")
+
+st.success("AK Trading App Working Successfully")
+
+high = st.number_input("First 5 Min High", value=0.0)
+
+low = st.number_input("First 5 Min Low", value=0.0)
+
+if high > 0 and low > 0:
+
+    velocity = high - low
+
+    bullish = high + velocity
+
+    bearish = low - velocity
+
+    col1, col2, col3 = st.columns(3)
+
+    col1.metric("Velocity", f"{velocity:.2f}")
+
+    col2.metric("Bullish Target", f"{bullish:.2f}")
+
+    col3.metric("Bearish Target", f"{bearish:.2f}")
+
+else:
+
+    st.info("Enter Market Levels")
+```
